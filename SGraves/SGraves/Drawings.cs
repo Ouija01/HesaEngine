@@ -16,33 +16,33 @@ namespace SGraves
 
         private static void Ondrawing(EventArgs args)
         {
-            if (Menus.Menu.Get<MenuCheckbox>("disableDraw").Checked) return;
+            if (Menus.RootMenu.Get<MenuCheckbox>("disableDraw").Checked) return;
 
-            if (Menus.Menu.Get<MenuCheckbox>("qDraw").Checked && Q.IsReady())
+            if (Menus.RootMenu.Get<MenuCheckbox>("qDraw").Checked && Q.IsReady())
             {
-                Drawing.DrawCircle(Graves.Position,Q.Range);
+                Drawing.DrawCircle(ObjectManager.Player.Position,Q.Range);
             }
 
-            if (Menus.Menu.Get<MenuCheckbox>("wDraw").Checked && W.IsReady())
+            if (Menus.RootMenu.Get<MenuCheckbox>("wDraw").Checked && W.IsReady())
             {
-                Drawing.DrawCircle(Graves.Position, W.Range);
+                Drawing.DrawCircle(ObjectManager.Player.Position, W.Range);
             }
 
-            if (Menus.Menu.Get<MenuCheckbox>("eDraw").Checked && E.IsReady())
+            if (Menus.RootMenu.Get<MenuCheckbox>("eDraw").Checked && E.IsReady())
             {
-                Drawing.DrawCircle(Graves.Position, E.Range);
+                Drawing.DrawCircle(ObjectManager.Player.Position, E.Range);
             }
 
-            if (Menus.Menu.Get<MenuCheckbox>("rDraw").Checked && R.IsReady())
+            if (Menus.RootMenu.Get<MenuCheckbox>("rDraw").Checked && R.IsReady())
             {
-                Drawing.DrawCircle(Graves.Position, R.Range);
+                Drawing.DrawCircle(ObjectManager.Player.Position, R.Range);
             }
 
-            if (Menus.Menu.Get<MenuCheckbox>("burstDmgText").Checked)
+            if (Menus.RootMenu.Get<MenuCheckbox>("burstDmgText").Checked)
             {
                 var targetQ = TargetSelector.GetTarget(Q.Range, TargetSelector.DamageType.Physical);
                 var damages = Q.GetDamage(targetQ) + W.GetDamage(targetQ) + R.GetDamage(targetQ);
-                if (targetQ != null && targetQ.IsInRange(Graves.Position,Q.Range))
+                if (targetQ != null && targetQ.IsInRange(Graves,Q.Range))
                 {
                     Drawing.DrawText(Graves.Position.X, Graves.Position.Y - 40, Color.Aqua,"Burst Damage: " + Convert.ToString(damages));
                 }

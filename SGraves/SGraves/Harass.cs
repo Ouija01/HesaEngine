@@ -15,7 +15,7 @@ namespace SGraves
 
             if (targetR == null) return;
 
-            if (Menus.Menu.Get<MenuCheckbox>("HQ").Checked && Q.IsReady())
+            if (Menus.RootMenu.Get<MenuCheckbox>("HQ").Checked && Q.IsReady())
             {
                 var prediction = Q.GetPrediction(targetQ);
                 if (prediction.Hitchance >= HitChance.VeryHigh)
@@ -24,7 +24,7 @@ namespace SGraves
                 }
             }
 
-            if (Menus.Menu.Get<MenuCheckbox>("HW").Checked && W.IsReady())
+            if (Menus.RootMenu.Get<MenuCheckbox>("HW").Checked && W.IsReady())
             {
                 var prediction = W.GetPrediction(targetW);
                 if (prediction.Hitchance >= HitChance.High)

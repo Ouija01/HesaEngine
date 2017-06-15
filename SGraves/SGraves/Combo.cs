@@ -22,9 +22,9 @@ namespace SGraves
 
             if (targetR == null) return;
 
-            if (!Menus.Menu.Get<MenuKeybind>("burstKey").Active)
+            if (!Menus.RootMenu.Get<MenuKeybind>("burstKey").Active)
             {
-                if (Menus.Menu.Get<MenuCheckbox>("CQ").Checked && Q.IsReady())
+                if (Menus.RootMenu.Get<MenuCheckbox>("CQ").Checked && Q.IsReady())
                 {
                     var prediction = Q.GetPrediction(targetQ);
                     if (prediction.Hitchance >= HitChance.VeryHigh)
@@ -33,7 +33,7 @@ namespace SGraves
                     }
                 }
 
-                if (Menus.Menu.Get<MenuCheckbox>("CW").Checked && W.IsReady())
+                if (Menus.RootMenu.Get<MenuCheckbox>("CW").Checked && W.IsReady())
                 {
                     var prediction = W.GetPrediction(targetW);
                     if (prediction.Hitchance >= HitChance.High)
@@ -42,7 +42,7 @@ namespace SGraves
                     }
                 }
 
-                if (Menus.Menu.Get<MenuCheckbox>("CR").Checked && R.IsReady()
+                if (Menus.RootMenu.Get<MenuCheckbox>("CR").Checked && R.IsReady()
                     && R.GetDamage(targetR) > targetR.Health
                     && targetR.IsInRange(Graves.Position, R.Range - 50))
                 {
@@ -53,9 +53,9 @@ namespace SGraves
                     }
                 }
 
-                if (Menus.Menu.Get<MenuCheckbox>("CE").Checked)
+                if (Menus.RootMenu.Get<MenuCheckbox>("CE").Checked)
                 {
-                    switch (Menus.Menu.Get<MenuCombo>("eMode").CurrentValue)
+                    switch (Menus.RootMenu.Get<MenuCombo>("eMode").CurrentValue)
                     {
                         case 0:
                             if (E.IsReady(0) && targetE != null && (double)Graves.Mana > 120.0 && IsSafePosition(targetQ.Position))
@@ -76,7 +76,7 @@ namespace SGraves
                 }
             }
 
-            if (Menus.Menu.Get<MenuKeybind>("burstKey").Active)
+            if (Menus.RootMenu.Get<MenuKeybind>("burstKey").Active)
             {
                 var Qpred = Q.GetPrediction(targetQ);
                 var Wpred = W.GetPrediction(targetW);

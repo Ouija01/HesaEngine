@@ -13,9 +13,9 @@ namespace SGraves
 
             if (lanemonster == null) return;
 
-            if (Menus.Menu.Get<MenuSlider>("LMana").CurrentValue <= Graves.ManaPercent) return;
+            if (Menus.RootMenu.Get<MenuSlider>("LMana").CurrentValue <= Graves.ManaPercent) return;
 
-            if (Q.IsReady() && Menus.Menu.Get<MenuCheckbox>("LQ").Checked)
+            if (Q.IsReady() && Menus.RootMenu.Get<MenuCheckbox>("LQ").Checked)
             {
                 if (Q.WillHit(lanemonster.FirstOrDefault(), Graves.Position, 0, HitChance.High))
                 {

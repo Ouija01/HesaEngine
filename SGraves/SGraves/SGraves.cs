@@ -11,6 +11,7 @@ using static SGraves.Combo;
 using static SGraves.Lane;
 using static SGraves.Menus;
 using static SGraves.Harass;
+using static SGraves.Drawings;
 
 namespace SGraves
 {
@@ -20,29 +21,28 @@ namespace SGraves
         public string Name => "SGraves";
         public string Version => "7.12";
 
-        public static Menu Menu;
-
         public static Spell Q, W, E, R, R1;
-        public static AIHeroClient Graves;
+        public static AIHeroClient Graves => ObjectManager.Player;
         public static Orbwalker.OrbwalkerInstance MyOrb => Core.Orbwalker;
 
         public void OnInitialize()
         {
-            Game.OnGameLoaded += Loading_Onload;
+            Game.OnGameLoaded += LoadComplete;
         }
 
-        private void Loading_Onload()
+        private void LoadComplete()
         {
-            if (Graves.Hero != Champion.Graves)
-            {
-                Chat.Print("SGraves: Failed to Load");
-                return;
-            }
-
-            Game.OnUpdate += GameUpdate;
+            if (ObjectManager.Player.Hero != Champion.Graves) return;
+            Chat.Print("SGraves: Loaded");
 
             CreateMenu();
+            Chat.Print("SGraves: Menu Loaded");
             CreateSpells();
+            Chat.Print("SGraves: Loaded");
+            CreateDraw();
+            Chat.Print("SGraves: Loaded");
+
+            Game.OnUpdate += GameUpdate;
         }
 
         private void GameUpdate()
@@ -63,16 +63,14 @@ namespace SGraves
 
         private void CreateSpells()
         {
-            Q = new Spell(SpellSlot.Q, 900f,TargetSelector.DamageType.Physical);
-            W = new Spell(SpellSlot.W, 950f, TargetSelector.DamageType.Physical);
-            E = new Spell(SpellSlot.E, 450f, TargetSelector.DamageType.Physical);
-            R = new Spell(SpellSlot.R, 1000f, TargetSelector.DamageType.Physical);
-            R1 = new Spell(SpellSlot.R, 1500f, TargetSelector.DamageType.Physical);
+            Q = new Spell(SpellSlot.Q, 900,TargetSelector.DamageType.Physical);
+            W = new Spell(SpellSlot.W, 950, TargetSelector.DamageType.Physical);
+            E = new Spell(SpellSlot.E, 450, TargetSelector.DamageType.Physical);
+            R = new Spell(SpellSlot.R, 1000, TargetSelector.DamageType.Physical);
 
             Q.SetSkillshot(0.26f, 50f, 1950f, false, SkillshotType.SkillshotLine);
             W.SetSkillshot(0.35f, 250f, 1650f, false, SkillshotType.SkillshotCircle);
             R.SetSkillshot(0.25f, 120f, 2100f, false, SkillshotType.SkillshotLine);
-            R1.SetSkillshot(0.26f, 120f, 2100f, false, SkillshotType.SkillshotLine);
         }
     }
 }
