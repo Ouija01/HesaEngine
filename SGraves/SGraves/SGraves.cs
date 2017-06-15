@@ -36,11 +36,8 @@ namespace SGraves
             Chat.Print("SGraves: Loaded");
 
             CreateMenu();
-            Chat.Print("SGraves: Menu Loaded");
             CreateSpells();
-            Chat.Print("SGraves: Loaded");
             CreateDraw();
-            Chat.Print("SGraves: Loaded");
 
             Game.OnUpdate += GameUpdate;
         }
