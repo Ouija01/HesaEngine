@@ -9,3 +9,15 @@ C:\Users\alexj\documents\visual studio 2015\Projects\SGraves\SGraves\bin\Debug\H
 C:\Users\alexj\documents\visual studio 2015\Projects\SGraves\SGraves\bin\Debug\Runtime.dll
 C:\Users\alexj\documents\visual studio 2015\Projects\SGraves\SGraves\obj\Debug\SGraves.dll
 C:\Users\alexj\documents\visual studio 2015\Projects\SGraves\SGraves\obj\Debug\SGraves.pdb
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SGraves.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SGraves.pdb
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\HesaEngine.Core.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SharpDX.D3DCompiler.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SharpDX.Direct3D9.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SharpDX.DirectInput.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SharpDX.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\HesaEngine.Wrapper.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\Runtime.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\obj\Debug\SGraves.csprojResolveAssemblyReference.cache
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\obj\Debug\SGraves.dll
+C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\obj\Debug\SGraves.pdb

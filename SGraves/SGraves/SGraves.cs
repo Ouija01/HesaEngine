@@ -33,13 +33,16 @@ namespace SGraves
         private void LoadComplete()
         {
             if (ObjectManager.Player.Hero != Champion.Graves) return;
+            //Success
             Chat.Print("SGraves: Loaded");
 
+            //Menu
             CreateMenu();
-
+            //Spells
             CreateSpells();
+            //Drawings
             CreateDraw();
-
+            //Orbwalker / Misc
             Game.OnUpdate += GameUpdate;
         }
 
