@@ -20,22 +20,22 @@ namespace SGraves
 
             if (Menus.RootMenu.Get<MenuCheckbox>("qDraw").Checked && Q.IsReady())
             {
-                Drawing.DrawCircle(ObjectManager.Player.Position,Q.Range);
+                Drawing.DrawCircle(Graves.Position,Q.Range);
             }
 
             if (Menus.RootMenu.Get<MenuCheckbox>("wDraw").Checked && W.IsReady())
             {
-                Drawing.DrawCircle(ObjectManager.Player.Position, W.Range);
+                Drawing.DrawCircle(Graves.Position, W.Range);
             }
 
             if (Menus.RootMenu.Get<MenuCheckbox>("eDraw").Checked && E.IsReady())
             {
-                Drawing.DrawCircle(ObjectManager.Player.Position, E.Range);
+                Drawing.DrawCircle(Graves.Position, E.Range);
             }
 
             if (Menus.RootMenu.Get<MenuCheckbox>("rDraw").Checked && R.IsReady())
             {
-                Drawing.DrawCircle(ObjectManager.Player.Position, R.Range);
+                Drawing.DrawCircle(Graves.Position, R.Range);
             }
 
             if (Menus.RootMenu.Get<MenuCheckbox>("burstDmgText").Checked)
@@ -44,7 +44,7 @@ namespace SGraves
                 var damages = Q.GetDamage(targetQ) + W.GetDamage(targetQ) + R.GetDamage(targetQ);
                 if (targetQ != null && targetQ.IsInRange(Graves,Q.Range))
                 {
-                    Drawing.DrawText(Graves.Position.X, Graves.Position.Y - 40, Color.Aqua,"Burst Damage: " + Convert.ToString(damages));
+                    Drawing.DrawText(Graves.Position.To2D().X, Graves.Position.To2D().Y - 40, Color.Aqua,"Burst Damage: " + damages);
                 }
             }
         }

@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Runtime.Remoting.Messaging;
 using System.Security.AccessControl;
 using HesaEngine.SDK;
+using HesaEngine.SDK.Enums;
 using HesaEngine.SDK.GameObjects;
 using SharpDX;
 using SharpDX.Multimedia;
@@ -20,7 +22,7 @@ namespace SGraves
             var targetE = TargetSelector.GetTarget(E.Range, TargetSelector.DamageType.Physical);
             var targetR = TargetSelector.GetTarget(R.Range, TargetSelector.DamageType.Physical);
 
-            if (targetR == null) return;
+            if (targetR == null || Graves.IsDead) return;
 
             if (!Menus.RootMenu.Get<MenuKeybind>("burstKey").Active)
             {
@@ -82,22 +84,25 @@ namespace SGraves
                 var Wpred = W.GetPrediction(targetW);
                 var Rpred = R.GetPrediction(targetR);
 
-                if (Orbwalker.CanAttack() && targetQ.IsInRange(Graves.Position,Q.Range))
+                if (targetR != null)
                 {
-                    if (FlatBurstDmg(targetQ) >= targetQ.Health)
+                    if (Orbwalker.CanAttack() && targetQ.IsInRange(Graves.Position, Q.Range))
                     {
-                        if (Q.IsReady() && Q.WillHit(targetQ, Graves.Position))
+                        if (FlatBurstDmg(targetQ) >= targetQ.Health)
                         {
-                            if (Qpred.Hitchance >= HitChance.VeryHigh) Q.Cast(targetQ);
-                        }
-                        if (!Q.IsReady() && W.IsReady() && W.WillHit(targetW, Graves.Position))
-                        {
-                            if (Wpred.Hitchance >= HitChance.High) W.Cast(targetW);
-                        }
-                        if (!Q.IsReady() && !W.IsReady() && R.IsReady() && R.WillHit(targetR, Graves.Position))
-                        {
-                            if (Rpred.Hitchance >= HitChance.VeryHigh) R.Cast(targetR);
+                            if (Q.IsReady())
+                            {
+                                if (Qpred.Hitchance >= HitChance.High) Q.Cast(targetQ);
+                            }
+                            if (IsOnCooldown(Q) && W.IsReady())
+                            {
+                                if (Wpred.Hitchance >= HitChance.Medium) W.Cast(targetW);
+                            }
+                            if (IsOnCooldown(Q) && IsOnCooldown(W) && R.IsReady())
+                            {
+                                if (Rpred.Hitchance >= HitChance.High) R.Cast(targetR);
 
+                            }
                         }
                     }
                 }
@@ -108,11 +113,35 @@ namespace SGraves
             }
         }
 
+        public static bool IsOnCooldown(Spell spell)
+        {
+            if (!spell.IsReady())
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static float FlatBurstDmg(AIHeroClient target)
         {
-            var damage = Q.GetDamage(target) + Graves.GetAutoAttackDamage(target) + W.GetDamage(target) + R.GetDamage(target);
+            var damage = 0;
 
-            return (float) damage;
+            if (Q.IsReady())
+            {
+                damage += (int)Q.GetDamage(target);
+            }
+
+            if (W.IsReady())
+            {
+                damage += (int)W.GetDamage(target);
+            }
+
+            if (R.IsReady())
+            {
+                damage += (int)R.GetDamage(target);
+            }
+
+            return damage;
         }
 
         public static bool UnderAllyTurret(Vector3 pos)
@@ -142,7 +171,7 @@ namespace SGraves
             var enemies = position.CountEnemiesInRange(800);
             var allies = CountAlliesInRange(position);
             var turrets = ObjectManager.Turrets.Ally.Count(x => Graves.Distance(x) < 800 && !x.IsDead && x.IsValid());
-            var lowEnemies = GetLowaiAiHeroClients(position, 800).Count();
+            var lowEnemies = GetLowaiAiHeroClients(position, 800).Count;
 
             if (UnderEnemyTurret(position)) return false;
 

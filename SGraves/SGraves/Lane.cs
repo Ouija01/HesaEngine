@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using HesaEngine.SDK;
 using static SGraves.SGraves;
 using static SGraves.Menus;
@@ -9,17 +10,20 @@ namespace SGraves
     {
         public static void LaneExec()
         {
-            var lanemonster = MinionManager.GetMinions(Q.Range, MinionTypes.All, MinionTeam.Enemy);
+            var lanemonster = ObjectManager.MinionsAndMonsters.Enemy.Where(z => z.IsValidTarget() && z.IsInRange(Graves, Q.Range));
 
-            if (lanemonster == null) return;
+            if (Graves.IsDead) return;
 
             if (Menus.RootMenu.Get<MenuSlider>("LMana").CurrentValue >= Graves.ManaPercent) return;
 
             if (Q.IsReady() && Menus.RootMenu.Get<MenuCheckbox>("LQ").Checked)
             {
-                if (Q.WillHit(lanemonster.FirstOrDefault(), Graves.Position, 0, HitChance.High))
+                foreach (var minions in lanemonster)
                 {
-                    Q.CastIfWillHit(lanemonster.FirstOrDefault(),2);
+                    if (Q.WillHit(minions, Graves.Position))
+                    {
+                        Q.Cast(Q.CastIfWillHit(minions, 2));
+                    }
                 }
             }
         }

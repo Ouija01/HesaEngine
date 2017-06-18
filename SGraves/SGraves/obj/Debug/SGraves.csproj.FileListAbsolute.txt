@@ -18,6 +18,5 @@ C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SharpDX.Dir
 C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\SharpDX.dll
 C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\HesaEngine.Wrapper.dll
 C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\bin\Debug\Runtime.dll
-C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\obj\Debug\SGraves.csprojResolveAssemblyReference.cache
 C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\obj\Debug\SGraves.dll
 C:\Users\alexj\Documents\GitHub\HesaEngine\SGraves\SGraves\obj\Debug\SGraves.pdb
