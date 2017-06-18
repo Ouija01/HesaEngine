@@ -1,6 +1,5 @@
 ﻿using HesaEngine.SDK;
 using SharpDX.DirectInput;
-using static SGraves.SGraves;
 
 namespace SGraves
 {

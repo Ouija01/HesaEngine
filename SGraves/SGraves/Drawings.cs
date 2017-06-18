@@ -2,8 +2,6 @@
 using HesaEngine.SDK;
 using SharpDX;
 using static SGraves.SGraves;
-using static SGraves.Menus;
-using static SGraves.Combo;
 
 namespace SGraves
 {
