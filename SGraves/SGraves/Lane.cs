@@ -13,7 +13,7 @@ namespace SGraves
 
             if (lanemonster == null) return;
 
-            if (Menus.RootMenu.Get<MenuSlider>("LMana").CurrentValue <= Graves.ManaPercent) return;
+            if (Menus.RootMenu.Get<MenuSlider>("LMana").CurrentValue >= Graves.ManaPercent) return;
 
             if (Q.IsReady() && Menus.RootMenu.Get<MenuCheckbox>("LQ").Checked)
             {
