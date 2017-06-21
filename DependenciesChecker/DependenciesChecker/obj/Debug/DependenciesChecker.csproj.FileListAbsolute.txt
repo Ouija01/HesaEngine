@@ -1,0 +1,9 @@
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\bin\Debug\DependenciesChecker.exe.config
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\bin\Debug\DependenciesChecker.exe
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\bin\Debug\DependenciesChecker.pdb
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\obj\Debug\DependenciesChecker.csprojResolveAssemblyReference.cache
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\obj\Debug\DependenciesChecker.Form1.resources
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\obj\Debug\DependenciesChecker.Properties.Resources.resources
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\obj\Debug\DependenciesChecker.csproj.GenerateResource.Cache
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\obj\Debug\DependenciesChecker.exe
+c:\users\alexj\documents\visual studio 2015\Projects\DependenciesChecker\DependenciesChecker\obj\Debug\DependenciesChecker.pdb
